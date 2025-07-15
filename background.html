@@ -1,0 +1,46 @@
+<html>
+  <script>
+	var text = "";
+	var on = false;
+	
+	function sendTabMessage(msg){
+		chrome.tabs.getAllInWindow( null,
+			function (Tabs){
+				for (i=0;i<Tabs.length;i++){
+					tab = Tabs[i]
+					chrome.tabs.sendRequest(tab.id, {doit: msg})
+				}
+			}
+		)	
+	}
+
+	chrome.tabs.onCreated.addListener(function(Tab){
+		if (on) {
+        chrome.tabs.sendRequest(Tab.id, {doit: "active"})
+    } else {
+        chrome.tabs.sendRequest(Tab.id, {doit: "inactive"})
+    }
+	});
+	
+	chrome.extension.onRequest.addListener(
+		function(request, sender, sendResponse) {
+			switch(request.mission){
+				case "setIco": 
+					if (on) {
+						on = false;
+						chrome.browserAction.setIcon({path:"icon.png"})
+						sendTabMessage("inactive")
+					}else{
+						on = true;
+						chrome.browserAction.setIcon({path:"icona.png"})
+						sendTabMessage("active")
+					} break;
+				case "setText": text = request.Text;
+					break;
+				case "getText": sendResponse({Text: text});
+					break;
+			}
+		}
+	);
+  </script>
+</html>

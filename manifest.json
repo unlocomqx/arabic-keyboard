@@ -1,0 +1,23 @@
+{
+  "name": "Arabic Keyboard",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "version": "1.6",
+  "description": "Type easily in Arabic.",
+  "action": {
+    "default_title": "Arabic Keyboard",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": [ "arkeyb.js"]
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "manifest_version": 3
+}
