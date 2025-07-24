@@ -99,52 +99,60 @@ var ArKbUnLo = {
     if (!car) {
       return car;
     }
-    car = car.replace(/’/g, "\'");
-    car = car.replace(/a/g, "ا");
-    car = car.replace(/b/g, "ب");
-    car = car.replace(/p/g, "پ");
-    car = car.replace(/t/g, "ت");
-    car = car.replace(/F/g, "ث");
-    car = car.replace(/j/g, "ج");
-    car = car.replace(/H/g, "ح");
-    car = car.replace(/x/g, "خ");
-    car = car.replace(/d/g, "د");
-    car = car.replace(/²/g, "ذ");
-    car = car.replace(/r/g, "ر");
-    car = car.replace(/z/g, "ز");
-    car = car.replace(/s/g, "س");
-    car = car.replace(/"/g, "ش");
-    car = car.replace(/e/g, "أ");
-    car = car.replace(/S/g, "ص");
-    car = car.replace(/D/g, "ض");
-    car = car.replace(/T/g, "ط");
-    car = car.replace(/Z/g, "ظ");
-    car = car.replace(/g/g, "ع");
-    car = car.replace(/G/g, "غ");
-    car = car.replace(/f/g, "ف");
-    car = car.replace(/q/g, "ق");
-    car = car.replace(/k/g, "ك");
-    car = car.replace(/l/g, "ل");
-    car = car.replace(/m/g, "م");
-    car = car.replace(/n/g, "ن");
-    car = car.replace(/h/g, "ه");
-    car = car.replace(/Q/g, "ة");
-    car = car.replace(/w/g, "و");
-    car = car.replace(/y/g, "ي");
-    car = car.replace(/i/g, "إ");
-    car = car.replace(/-/g, "ء");
-    car = car.replace(/o/g, "ؤ");
-    car = car.replace(/u/g, "ئ");
-    car = car.replace(/I/g, "إ");
-    car = car.replace(/v/g, "ڤ");
-    car = car.replace(/Y/g, "ى");
-    car = car.replace(/A/g, "آ");
-    car = car.replace(/_/g, "ـ");
-    car = car.replace(/\?/g, "؟");
-    car = car.replace(/\;/g, "؛");
-    car = car.replace(/\,/g, "،");
-    return (car);
 
+    const charMap = {
+      "'": "\'",
+      "a": "ا",
+      "b": "ب",
+      "p": "پ",
+      "t": "ت",
+      "F": "ث",
+      "j": "ج",
+      "H": "ح",
+      "x": "خ",
+      "d": "د",
+      "²": "ذ",
+      "r": "ر",
+      "z": "ز",
+      "s": "س",
+      '"': "ش",
+      "e": "أ",
+      "S": "ص",
+      "D": "ض",
+      "T": "ط",
+      "Z": "ظ",
+      "g": "ع",
+      "G": "غ",
+      "f": "ف",
+      "q": "ق",
+      "k": "ك",
+      "l": "ل",
+      "m": "م",
+      "n": "ن",
+      "h": "ه",
+      "Q": "ة",
+      "w": "و",
+      "y": "ي",
+      "i": "إ",
+      "£": "ء",
+      "o": "ؤ",
+      "u": "ئ",
+      "I": "إ",
+      "v": "ڤ",
+      "Y": "ى",
+      "A": "آ",
+      "_": "ـ",
+      "?": "؟",
+      ";": "؛",
+      ",": "،",
+      "3": "ّ",
+      "_":"ِ",
+      "-":"َ",
+      "0":"َ",
+      "*":"ڨ",
+    };
+
+    return charMap[car] || car;
   }
 };
 
