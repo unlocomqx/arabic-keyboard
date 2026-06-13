@@ -114,7 +114,7 @@ chrome.runtime.sendMessage({mission: "getText"},
 );
 if ($id('txt')) {
   $id('txt').addEventListener('keyup', function (e) {
-    if (($id('arab') && !$id('arab').checked) || e.ctrlKey || e.altKey) {
+    if (($id('arab') && !$id('arab').checked) || e.ctrlKey || e.metaKey || e.altKey) {
       return;
     }
     //alert(e.keyCode)

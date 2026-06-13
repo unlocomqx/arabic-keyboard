@@ -38,7 +38,7 @@ var ArKbUnLo = {
   },
 
   trans: function (tname, elm, chr, chg) {
-    if (tname == 'div') {
+    if (tname === 'div') {
       pos = getCaretPosition(elm);
     } else {
       pos = ArKbUnLo.getCaretPos(elm);
